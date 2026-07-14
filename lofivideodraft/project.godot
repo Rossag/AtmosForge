@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="LofiVideoDraft"
+config/name="AtmosForge"
 run/main_scene="uid://b4dbgpqrc7ool"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
