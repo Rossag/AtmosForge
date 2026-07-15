@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dvrevpfhdms47"
+path="res://.godot/imported/Mug Warm Window -Train5.wav-0663ff7a6f536199689ca083bb0215ff.sample"
+
+[deps]
+
+source_file="res://Projects/SleeperTrain/assets/Audio/Mug Warm Window -Train5.wav"
+dest_files=["res://.godot/imported/Mug Warm Window -Train5.wav-0663ff7a6f536199689ca083bb0215ff.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

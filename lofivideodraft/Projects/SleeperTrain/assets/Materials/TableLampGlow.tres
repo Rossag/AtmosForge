@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dg8y8gtqjur7f"]
+
+[ext_resource type="Shader" uid="uid://bts1sbb6xou08" path="res://Core/Shaders/lamp_glow.gdshader" id="1_1yyow"]
+
+[resource]
+shader = ExtResource("1_1yyow")
+shader_parameter/glow_color = Color(1, 0.42, 0.12, 0.32)
+shader_parameter/glow_position = Vector2(0.635, 0.52)
+shader_parameter/radius = 0.04
+shader_parameter/softness = 0.2
+shader_parameter/intensity = 0.65
+shader_parameter/flicker_amount = 0.012
+shader_parameter/flicker_speed = 1.4
+shader_parameter/aspect_ratio = 1.7778

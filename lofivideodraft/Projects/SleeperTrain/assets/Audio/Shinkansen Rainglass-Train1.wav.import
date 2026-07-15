@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://i66wn5tr747d"
+path="res://.godot/imported/Shinkansen Rainglass-Train1.wav-3e63fba1d3bf6e3367225588f5b0a0d7.sample"
+
+[deps]
+
+source_file="res://Projects/SleeperTrain/assets/Audio/Shinkansen Rainglass-Train1.wav"
+dest_files=["res://.godot/imported/Shinkansen Rainglass-Train1.wav-3e63fba1d3bf6e3367225588f5b0a0d7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

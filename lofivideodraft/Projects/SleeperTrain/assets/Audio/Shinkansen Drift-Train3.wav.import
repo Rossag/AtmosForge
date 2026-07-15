@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bmw88bnifxogi"
+path="res://.godot/imported/Shinkansen Drift-Train3.wav-b62a7cc918dd8f68bca9f74f898d33cb.sample"
+
+[deps]
+
+source_file="res://Projects/SleeperTrain/assets/Audio/Shinkansen Drift-Train3.wav"
+dest_files=["res://.godot/imported/Shinkansen Drift-Train3.wav-b62a7cc918dd8f68bca9f74f898d33cb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

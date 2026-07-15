@@ -1,9 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvirsx7opjv2q"]
+[gd_scene load_steps=16 format=3 uid="uid://bvirsx7opjv2q"]
 
 [ext_resource type="Texture2D" uid="uid://u76stktfvadu" path="res://Projects/SleeperTrain/assets/Interior/AtmosForge_SleeperTrain_Interior_Transparent.png" id="1_c8fhw"]
 [ext_resource type="PackedScene" uid="uid://do5h7imdw5st1" path="res://Projects/SleeperTrain/Train_exterior.tscn" id="1_yjmsl"]
 [ext_resource type="Shader" uid="uid://btj62mdv2ts5e" path="res://Shaders/WindowRain.gdshader" id="2_1q5bg"]
 [ext_resource type="Material" uid="uid://dastws52r00i7" path="res://Projects/SleeperTrain/assets/Materials/Sleeper_train_steam_material.tres" id="4_mg72o"]
+[ext_resource type="Material" uid="uid://dg8y8gtqjur7f" path="res://Projects/SleeperTrain/assets/Materials/TableLampGlow.tres" id="4_woktg"]
+[ext_resource type="Script" uid="uid://dcanmskt8jssn" path="res://Projects/SleeperTrain/ambient_motion.gd" id="5_q2wdp"]
+[ext_resource type="Material" uid="uid://i2tpe1olhqv4" path="res://Projects/SleeperTrain/assets/Materials/WallLampGlow.tres" id="5_woktg"]
+[ext_resource type="PackedScene" uid="uid://54ujpk7chteg" path="res://Core/Audio/Scenes/music_play_list.tscn" id="7_7c5xb"]
+[ext_resource type="AudioStream" uid="uid://bmw88bnifxogi" path="res://Projects/SleeperTrain/assets/Audio/Shinkansen Drift-Train3.wav" id="8_m8xje"]
+[ext_resource type="AudioStream" uid="uid://k53ivbsolebq" path="res://Projects/SleeperTrain/assets/Audio/Shinkansen Drift-Train4.wav" id="9_yr3o2"]
+[ext_resource type="AudioStream" uid="uid://i66wn5tr747d" path="res://Projects/SleeperTrain/assets/Audio/Shinkansen Rainglass-Train1.wav" id="10_gyan1"]
+[ext_resource type="AudioStream" uid="uid://qrtrct5ny7sa" path="res://Projects/SleeperTrain/assets/Audio/Shinkansen Rainglass-Train2.wav" id="11_m5q0l"]
+[ext_resource type="AudioStream" uid="uid://dvrevpfhdms47" path="res://Projects/SleeperTrain/assets/Audio/Mug Warm Window -Train5.wav" id="12_3d5vo"]
+[ext_resource type="Script" uid="uid://bjlb8v66qkxx4" path="res://Projects/SleeperTrain/recording_timer.gd" id="14_yr3o2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mg72o"]
 shader = ExtResource("2_1q5bg")
@@ -21,7 +31,7 @@ shader_parameter/streak_length = 0.167
 
 [node name="TrainExterior" parent="ParralaxModule" instance=ExtResource("1_yjmsl")]
 
-[node name="WindowEffects" type="CanvasLayer" parent="."]
+[node name="WindowEffects" type="CanvasLayer" parent="." groups=["ambient_motion_target"]]
 
 [node name="WindowEffects" type="ColorRect" parent="WindowEffects"]
 material = SubResource("ShaderMaterial_mg72o")
@@ -32,19 +42,32 @@ offset_bottom = 623.0
 rotation = 0.000708351
 scale = Vector2(1, 1.11983)
 
-[node name="InteriorLayer" type="CanvasLayer" parent="."]
+[node name="InteriorLayer" type="CanvasLayer" parent="." groups=["ambient_motion_target"]]
 layer = 2
 
-[node name="TextureRect" type="TextureRect" parent="InteriorLayer"]
-offset_right = 1920.0
-offset_bottom = 1080.0
+[node name="TrainInterior" type="TextureRect" parent="InteriorLayer"]
+custom_minimum_size = Vector2(-4, -4)
+offset_right = 1928.0
+offset_bottom = 1088.0
 texture = ExtResource("1_c8fhw")
 expand_mode = 1
 
-[node name="ForegroundEffects" type="CanvasLayer" parent="."]
+[node name="ForegroundEffects" type="CanvasLayer" parent="." groups=["ambient_motion_target"]]
 layer = 3
 
-[node name="CoffeeSteam" type="ColorRect" parent="ForegroundEffects"]
+[node name="WallLampGlow" type="ColorRect" parent="ForegroundEffects" groups=["ambient_motion_target"]]
+material = ExtResource("5_woktg")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="TableLampGlow" type="ColorRect" parent="ForegroundEffects" groups=["ambient_motion_target"]]
+material = ExtResource("4_woktg")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="CoffeeSteam" type="ColorRect" parent="ForegroundEffects" groups=["ambient_motion_target"]]
 material = ExtResource("4_mg72o")
 custom_minimum_size = Vector2(80, 100)
 offset_left = 714.0
@@ -54,5 +77,18 @@ offset_bottom = 704.0
 
 [node name="Audio" type="Node" parent="."]
 
+[node name="MusicPlayList" parent="Audio" instance=ExtResource("7_7c5xb")]
+tracks = Array[AudioStream]([ExtResource("8_m8xje"), ExtResource("9_yr3o2"), ExtResource("10_gyan1"), ExtResource("11_m5q0l"), ExtResource("12_3d5vo")])
+
 [node name="Interface" type="CanvasLayer" parent="."]
 layer = 10
+
+[node name="AmbientMotion" type="Node" parent="."]
+script = ExtResource("5_q2wdp")
+vertical_amount = 1.0
+vibration_amount = 0.4
+vibration_speed = 0.8
+
+[node name="RecordingTimer" type="Node" parent="."]
+script = ExtResource("14_yr3o2")
+duration_seconds = 900.0

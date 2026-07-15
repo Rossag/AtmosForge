@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://54ujpk7chteg"]
+
+[ext_resource type="Script" uid="uid://byt7oigl1p2cb" path="res://Core/Audio/Scripts/music_play_list.gd" id="1_7mxph"]
+
+[node name="MusicPlayList" type="Node"]
+script = ExtResource("1_7mxph")
+
+[node name="PlayerA" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="PlayerB" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
