@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvirsx7opjv2q"]
+
+[ext_resource type="Texture2D" uid="uid://u76stktfvadu" path="res://Projects/SleeperTrain/assets/Interior/AtmosForge_SleeperTrain_Interior_Transparent.png" id="1_c8fhw"]
+[ext_resource type="PackedScene" uid="uid://do5h7imdw5st1" path="res://Projects/SleeperTrain/Train_exterior.tscn" id="1_yjmsl"]
+[ext_resource type="Shader" uid="uid://btj62mdv2ts5e" path="res://Shaders/WindowRain.gdshader" id="2_1q5bg"]
+[ext_resource type="Material" uid="uid://dastws52r00i7" path="res://Projects/SleeperTrain/assets/Materials/Sleeper_train_steam_material.tres" id="4_mg72o"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mg72o"]
+shader = ExtResource("2_1q5bg")
+shader_parameter/rain_color = Color(0.65, 0.78, 1, 1)
+shader_parameter/intensity = 0.203
+shader_parameter/speed = 6.0
+shader_parameter/density = 40.27
+shader_parameter/slant = 0.5
+shader_parameter/streak_width = 0.03
+shader_parameter/streak_length = 0.167
+
+[node name="SleeperTrain" type="Node2D"]
+
+[node name="ParralaxModule" type="Node2D" parent="."]
+
+[node name="TrainExterior" parent="ParralaxModule" instance=ExtResource("1_yjmsl")]
+
+[node name="WindowEffects" type="CanvasLayer" parent="."]
+
+[node name="WindowEffects" type="ColorRect" parent="WindowEffects"]
+material = SubResource("ShaderMaterial_mg72o")
+offset_left = 382.0
+offset_top = 99.0
+offset_right = 1525.0
+offset_bottom = 623.0
+rotation = 0.000708351
+scale = Vector2(1, 1.11983)
+
+[node name="InteriorLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="TextureRect" type="TextureRect" parent="InteriorLayer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_c8fhw")
+expand_mode = 1
+
+[node name="ForegroundEffects" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="CoffeeSteam" type="ColorRect" parent="ForegroundEffects"]
+material = ExtResource("4_mg72o")
+custom_minimum_size = Vector2(80, 100)
+offset_left = 714.0
+offset_top = 604.0
+offset_right = 826.0
+offset_bottom = 704.0
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Interface" type="CanvasLayer" parent="."]
+layer = 10

@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://do5h7imdw5st1"]
+
+[ext_resource type="PackedScene" uid="uid://cu08btksj2plv" path="res://Core/Parallax/Scenes/parallax_layer.tscn" id="1_5bva7"]
+[ext_resource type="Texture2D" uid="uid://bb3m00nb8375" path="res://Projects/SleeperTrain/assets/Landscape/AtmosForge_NightMountain.png" id="1_w1c8o"]
+[ext_resource type="Texture2D" uid="uid://cxextmhwc5p5r" path="res://Projects/SleeperTrain/assets/Landscape/AtmosForge_DistantForest_Seamless.png" id="3_dhflc"]
+[ext_resource type="Texture2D" uid="uid://dyro61iqnukr" path="res://Projects/SleeperTrain/assets/Landscape/AtmosForge_MidPines_Seamless.png" id="4_m7jtq"]
+[ext_resource type="Texture2D" uid="uid://ic2aehvug15f" path="res://Projects/SleeperTrain/assets/Landscape/AtmosForge_NearGrass_Seamless.png" id="5_xo3cx"]
+
+[node name="TrainExterior" type="Node2D"]
+scale = Vector2(1.148, 1.148)
+
+[node name="SkyAndMountain" type="Sprite2D" parent="."]
+texture = ExtResource("1_w1c8o")
+centered = false
+
+[node name="MovingLayers" type="Node2D" parent="."]
+
+[node name="FarForest" parent="MovingLayers" instance=ExtResource("1_5bva7")]
+repeat_size = Vector2(3344, 0)
+autoscroll = Vector2(-25, 0)
+layer_texture = ExtResource("3_dhflc")
+speed = 25.0
+layer_position = Vector2(0, -170)
+
+[node name="MidTrees" parent="MovingLayers" instance=ExtResource("1_5bva7")]
+repeat_size = Vector2(3344, 0)
+autoscroll = Vector2(-90, 0)
+layer_texture = ExtResource("4_m7jtq")
+speed = 90.0
+layer_position = Vector2(0, -170)
+
+[node name="NearGrass" parent="MovingLayers" instance=ExtResource("1_5bva7")]
+repeat_size = Vector2(3344, 0)
+autoscroll = Vector2(-280, 0)
+layer_texture = ExtResource("5_xo3cx")
+speed = 280.0
+layer_position = Vector2(0, -70)

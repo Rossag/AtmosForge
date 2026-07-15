@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu08btksj2plv"]
+
+[ext_resource type="Script" uid="uid://cskaarbdn3yfv" path="res://Core/Parallax/Scenes/parallax_layer.gd" id="1_wvbhx"]
+
+[node name="ParallaxLayer" type="Parallax2D"]
+repeat_times = 3
+ignore_camera_scroll = true
+script = ExtResource("1_wvbhx")
+
+[node name="LayerSprite" type="Sprite2D" parent="."]
+centered = false
