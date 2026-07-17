@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://kjpyj8cjrjps"]
+
+[ext_resource type="Shader" uid="uid://ldmop5f7lcya" path="res://Core/Water/Shaders/Window_splash.gdshader" id="1_6txoh"]
+
+[resource]
+shader = ExtResource("1_6txoh")
+shader_parameter/splash_color = Color(0.55, 0.75, 0.9, 0.32)
+shader_parameter/cycle_duration = 12.0
+shader_parameter/splash_duration = 1.2
+shader_parameter/splash_width = 0.055
+shader_parameter/splash_softness = 0.035
+shader_parameter/splash_height = 0.32
+shader_parameter/splash_position = 0.68
+shader_parameter/intensity = 0.65

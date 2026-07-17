@@ -5,7 +5,7 @@
 [ext_resource type="Shader" uid="uid://btj62mdv2ts5e" path="res://Shaders/WindowRain.gdshader" id="2_1q5bg"]
 [ext_resource type="Material" uid="uid://dastws52r00i7" path="res://Projects/SleeperTrain/assets/Materials/Sleeper_train_steam_material.tres" id="4_mg72o"]
 [ext_resource type="Material" uid="uid://dg8y8gtqjur7f" path="res://Projects/SleeperTrain/assets/Materials/TableLampGlow.tres" id="4_woktg"]
-[ext_resource type="Script" uid="uid://dcanmskt8jssn" path="res://Projects/SleeperTrain/ambient_motion.gd" id="5_q2wdp"]
+[ext_resource type="Script" uid="uid://dcanmskt8jssn" path="res://Core/Parallax/Scripts/ambient_motion.gd" id="5_q2wdp"]
 [ext_resource type="Material" uid="uid://i2tpe1olhqv4" path="res://Projects/SleeperTrain/assets/Materials/WallLampGlow.tres" id="5_woktg"]
 [ext_resource type="PackedScene" uid="uid://54ujpk7chteg" path="res://Core/Audio/Scenes/music_play_list.tscn" id="7_7c5xb"]
 [ext_resource type="AudioStream" uid="uid://bmw88bnifxogi" path="res://Projects/SleeperTrain/assets/Audio/Shinkansen Drift-Train3.wav" id="8_m8xje"]

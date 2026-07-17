@@ -1,0 +1,99 @@
+[gd_scene load_steps=23 format=3 uid="uid://g5ju01jt4a67"]
+
+[ext_resource type="PackedScene" uid="uid://dwm3y0nbqs8k6" path="res://Core/Water/scenes/water_surface.tscn" id="1_amhrc"]
+[ext_resource type="Texture2D" uid="uid://d0ctibyg5tbeo" path="res://Projects/CozyBoatCabin/assets/Water/AtmosForge_CozyBoatCabin_MoonlitSky.png" id="1_b0xyt"]
+[ext_resource type="Texture2D" uid="uid://bnp46s4wotgv3" path="res://Projects/CozyBoatCabin/assets/Interior/AtmosForge_CozyBoatCabin_Foreground_Transparent.png" id="1_mw7cc"]
+[ext_resource type="Material" uid="uid://o2bk4o2rrjsa" path="res://Projects/CozyBoatCabin/assets/Materials/cozy_boat_water_material.tres" id="2_b0xyt"]
+[ext_resource type="PackedScene" uid="uid://cu08btksj2plv" path="res://Core/Parallax/Scenes/parallax_layer.tscn" id="2_kup3w"]
+[ext_resource type="Texture2D" uid="uid://dn0k38o3b30v2" path="res://Projects/CozyBoatCabin/assets/Water/AtmosForge_MoonlitClouds_Seamless.png" id="3_4d3ng"]
+[ext_resource type="PackedScene" uid="uid://fahkg1836ffi" path="res://Core/Water/scenes/window_splash.tscn" id="6_xi4ra"]
+[ext_resource type="Material" uid="uid://chjl48ofh5cop" path="res://Projects/CozyBoatCabin/assets/Materials/cozy_boat_coffee_steam.tres" id="7_4d3ng"]
+[ext_resource type="Material" uid="uid://dcvsqqp3gecrr" path="res://Projects/CozyBoatCabin/assets/Materials/cozy_boat_lamp_glow.tres" id="7_sxdh2"]
+[ext_resource type="Script" uid="uid://dcanmskt8jssn" path="res://Core/Parallax/Scripts/ambient_motion.gd" id="9_xi4ra"]
+[ext_resource type="Script" uid="uid://bjlb8v66qkxx4" path="res://Projects/SleeperTrain/recording_timer.gd" id="11_y25a1"]
+[ext_resource type="PackedScene" uid="uid://54ujpk7chteg" path="res://Core/Audio/Scenes/music_play_list.tscn" id="12_brat1"]
+[ext_resource type="AudioStream" uid="uid://xju8laapvlfo" path="res://Projects/CozyBoatCabin/assets/Audio/Drift Over Tide (1).wav" id="13_rp0hd"]
+[ext_resource type="AudioStream" uid="uid://5o2sbtbovkrs" path="res://Projects/CozyBoatCabin/assets/Audio/Drift Over Tide.wav" id="14_ngtsb"]
+[ext_resource type="AudioStream" uid="uid://33tjpfkh54ut" path="res://Projects/CozyBoatCabin/assets/Audio/Saltline Drift (1).wav" id="15_7bpso"]
+[ext_resource type="AudioStream" uid="uid://b25dob40vbaun" path="res://Projects/CozyBoatCabin/assets/Audio/Saltline Drift.wav" id="16_70wni"]
+[ext_resource type="AudioStream" uid="uid://d1261u1e4ysbf" path="res://Projects/CozyBoatCabin/assets/Audio/Saltwake Drift (1).wav" id="17_mkxtv"]
+[ext_resource type="AudioStream" uid="uid://b87jt2q1voh7b" path="res://Projects/CozyBoatCabin/assets/Audio/Saltwake Drift (2).wav" id="18_qerua"]
+[ext_resource type="AudioStream" uid="uid://d23jiab7jssxx" path="res://Projects/CozyBoatCabin/assets/Audio/Saltwake Drift (3).wav" id="19_3m0gf"]
+[ext_resource type="AudioStream" uid="uid://cqrhnna0dpgs7" path="res://Projects/CozyBoatCabin/assets/Audio/Saltwake Drift.wav" id="20_i6ukp"]
+[ext_resource type="AudioStream" uid="uid://cm2ox3u75jhtm" path="res://Projects/CozyBoatCabin/assets/Audio/Tideglass Drift (1).wav" id="21_3bt1i"]
+[ext_resource type="AudioStream" uid="uid://c71d7qf3c6s13" path="res://Projects/CozyBoatCabin/assets/Audio/Tideglass Drift.wav" id="22_h6opn"]
+
+[node name="CozyBoatCabin" type="Node2D"]
+
+[node name="MoonlitSky" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+texture = ExtResource("1_b0xyt")
+expand_mode = 1
+
+[node name="WaterModule" type="Node2D" parent="."]
+
+[node name="WaterSurface" parent="WaterModule" instance=ExtResource("1_amhrc")]
+material = ExtResource("2_b0xyt")
+
+[node name="CloudModule" type="Node2D" parent="."]
+
+[node name="MoonClouds" parent="CloudModule" instance=ExtResource("2_kup3w")]
+modulate = Color(1, 1, 1, 0.35)
+self_modulate = Color(1, 1, 1, 0.299)
+repeat_size = Vector2(3344, 0)
+autoscroll = Vector2(-5, 0)
+layer_texture = ExtResource("3_4d3ng")
+speed = 5.0
+
+[node name="WindowEffects" type="CanvasLayer" parent="." groups=["ambient_motion_target"]]
+
+[node name="WindowSplash" parent="WindowEffects" instance=ExtResource("6_xi4ra")]
+
+[node name="InteriorLayer" type="CanvasLayer" parent="." groups=["ambient_motion_target"]]
+layer = 2
+
+[node name="CabinForeground" type="TextureRect" parent="InteriorLayer"]
+offset_right = 1928.0
+offset_bottom = 1088.0
+texture = ExtResource("1_mw7cc")
+expand_mode = 1
+
+[node name="ForegroundEffects" type="CanvasLayer" parent="." groups=["ambient_motion_target"]]
+layer = 3
+
+[node name="CabinLampGlow" type="ColorRect" parent="ForegroundEffects" groups=["ambient_motion_target"]]
+material = ExtResource("7_sxdh2")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="CoffeeSteam" type="ColorRect" parent="ForegroundEffects" groups=["ambient_motion_target"]]
+material = ExtResource("7_4d3ng")
+custom_minimum_size = Vector2(80, 100)
+offset_left = 232.0
+offset_top = 611.0
+offset_right = 374.0
+offset_bottom = 711.0
+
+[node name="AmbientMotion" type="Node" parent="."]
+script = ExtResource("9_xi4ra")
+horizontal_amount = 3.1
+vertical_amount = 4.0
+sway_speed = 0.19
+vibration_amount = 0.0
+vibration_speed = 11.7
+
+[node name="RecordingTimer" type="Node" parent="."]
+script = ExtResource("11_y25a1")
+duration_seconds = 1560.0
+
+[node name="Interface" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="MusicPlaylist" parent="Audio" instance=ExtResource("12_brat1")]
+tracks = Array[AudioStream]([ExtResource("13_rp0hd"), ExtResource("14_ngtsb"), ExtResource("15_7bpso"), ExtResource("16_70wni"), ExtResource("17_mkxtv"), ExtResource("18_qerua"), ExtResource("19_3m0gf"), ExtResource("20_i6ukp"), ExtResource("21_3bt1i"), ExtResource("22_h6opn")])
+shuffle = false

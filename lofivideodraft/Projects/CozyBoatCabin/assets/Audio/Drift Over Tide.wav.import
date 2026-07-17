@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://5o2sbtbovkrs"
+path="res://.godot/imported/Drift Over Tide.wav-f39a28955a6c7cd246c1317b1394735a.sample"
+
+[deps]
+
+source_file="res://Projects/CozyBoatCabin/assets/Audio/Drift Over Tide.wav"
+dest_files=["res://.godot/imported/Drift Over Tide.wav-f39a28955a6c7cd246c1317b1394735a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

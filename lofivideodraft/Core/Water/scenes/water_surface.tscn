@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwm3y0nbqs8k6"]
+
+[ext_resource type="Shader" uid="uid://widgn350xfmq" path="res://Core/Water/Shaders/water_surface.gdshader" id="1_l1dmh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_00s2r"]
+shader = ExtResource("1_l1dmh")
+shader_parameter/horizontal_speed = 0.0
+shader_parameter/primary_speed = 0.15
+shader_parameter/secondary_speed = 0.09
+shader_parameter/horizontal_motion = 0.001
+shader_parameter/vertical_motion = 0.002
+shader_parameter/wave_scale = 8.0
+shader_parameter/detail_scale = 17.0
+shader_parameter/heave_amount = 0.018
+shader_parameter/heave_speed = 0.45
+shader_parameter/roll_amount = 0.006
+shader_parameter/roll_speed = 0.3
+shader_parameter/texture_offset_x = 0.08
+shader_parameter/brightness = 0.88
+shader_parameter/saturation = 0.9
+shader_parameter/opacity = 1.0
+
+[node name="WaterSurface" type="ColorRect"]
+material = SubResource("ShaderMaterial_00s2r")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
